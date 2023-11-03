@@ -13,23 +13,41 @@
 //they must have the same frequency of letters
 //nested for loops O(n^2)
 
+// function validAnagram(str1, str2) {
+//   // add whatever parameters you deem necessary - good luck!
+//   if (str1.length !== str2.length) return false
+
+//   let arr1 = str1.split("")
+//   let arr2 = str2.split("")
+
+//   for(let i = 0; i < arr1.length; i++) {
+//     for(let j = 0; j < arr2.length; j++) {
+//         //if char is found on other array splice it
+//         if(arr1[i] === arr2[j]) {
+//             arr2.splice(j, 1)
+//         }
+//         //if char not found return false
+//     }
+//   }
+//   return arr2.length ? false : true
+// }
+
 function validAnagram(str1, str2) {
-  // add whatever parameters you deem necessary - good luck!
-  if (str1.length !== str2.length) return false
-
-  let arr1 = str1.split("")
-  let arr2 = str2.split("")
-
-  for(let i = 0; i < arr1.length; i++) {
-    for(let j = 0; j < arr2.length; j++) {
-        //if char is found on other array splice it
-        if(arr1[i] === arr2[j]) {
-            arr2.splice(j, 1)
-        }
-        //if char not found return false
+    let map1 = str1.split("").reduce((obj, char) => {
+        obj[char] = ++obj[char] || 1
+        return obj
+    }, {})
+    let map2 = str2.split("").reduce((obj, char) => {
+        obj[char] = ++obj[char] || 1
+        return obj
+    }, {})
+    
+    //loop one map to ensure matching key:value pair on other map
+    for (let key in map1) {
+        if(map2[key] !== map1[key]) return false
     }
-  }
-  return arr2.length ? false : true
+
+    return true
 }
 
 
