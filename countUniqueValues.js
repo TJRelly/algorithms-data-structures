@@ -1,8 +1,20 @@
 //Multiple Pointers
 
 function countUniqueValues(arr) {
-    let set = new Set(arr)
-    return set.size
+    let uniqueVals = []
+    //use pointers to push to unique values arr
+    let first = 0
+    let second = 1
+    //push first to uniqueVals
+    uniqueVals.push(arr[first])
+    while(second < arr.length) {
+        //everytime second isn't equal push to uniqueVals
+        if (arr[first] !== arr[second]) uniqueVals.push(arr[second])
+        first++
+        second++
+    }
+
+    return arr.length ? uniqueVals.length : 0
 }
 
 console.log(countUniqueValues([])) //0
