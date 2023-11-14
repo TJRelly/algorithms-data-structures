@@ -20,9 +20,10 @@ function checkerLogger(cb) {
     } else {
       //else  //return true or false
       //call the cb w/ arg
+      let result = cb(arg)
       //track true or false in cache
-      cb(arg) === true ? cache.true++ : cache.false++
-      return cb(arg)
+      result === true ? cache.true++ : cache.false++
+      return result
     }
   }
   //return checker func
