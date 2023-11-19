@@ -29,6 +29,16 @@ function sumToN(n) {
 }
 
 console.log("-- Sum to N --")
-console.log(sumToN(5))//should return 15
+console.log(sumToN(100))//should return 5050
 console.log(sumToN(3))//should return 6
+console.log("")
+
+// No Loop 
+function sumToN2(n) {
+    return n * (n + 1) / 2
+}
+
+console.log("-- Sum to N 2 --")
+console.log(sumToN2(100))//should return 5050
+console.log(sumToN2(3))//should return 6
 console.log("")
